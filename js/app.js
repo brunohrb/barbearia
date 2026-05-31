@@ -188,6 +188,7 @@ function renderAuth() {
     wrap.querySelector('#go-login').onclick = () => { authMode = 'login'; render(); };
   }
 
+  wrap.appendChild(renderManagerLink());
   $app.appendChild(wrap);
 }
 

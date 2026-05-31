@@ -216,6 +216,7 @@ function confirmBooking() {
     serviceId: b.service.id,
     price: b.service.price,
     barberName: b.barber === 'any' ? 'Qualquer barbeiro' : b.barber.name,
+    clientName: state.user ? state.user.name : 'Cliente',
     date: b.date,
     time: b.time,
     status: 'confirmed',

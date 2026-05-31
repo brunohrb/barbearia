@@ -1,0 +1,518 @@
+/* ===========================
+   Painel do Gestor
+   =========================== */
+
+/* MANAGER WRAP */
+.mgr-wrap {
+  min-height: 100vh;
+  padding-bottom: 40px;
+  background: var(--bg);
+}
+
+/* HEADER */
+.mgr-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 20px 20px calc(20px + env(safe-area-inset-top));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mgr-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mgr-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  object-fit: cover;
+}
+
+.mgr-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+}
+
+.mgr-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.mgr-logout-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.mgr-logout-btn:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* TAB BAR */
+.mgr-tabs {
+  display: flex;
+  background: white;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: sticky;
+  top: 84px;
+  z-index: 9;
+}
+
+.mgr-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.mgr-tab {
+  flex: 1;
+  min-width: max-content;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+  background: transparent;
+  transition: color 0.2s;
+}
+
+.mgr-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* CONTENT */
+.mgr-content {
+  padding-bottom: 40px;
+}
+
+/* STATS ROW */
+.mgr-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 16px 16px 8px;
+}
+
+.mgr-stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.mgr-stat.green {
+  border-left: 3px solid var(--green);
+}
+
+.mgr-stat.orange {
+  border-left: 3px solid var(--primary);
+}
+
+.mgr-stat-val {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.mgr-stat-lbl {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+/* NEXT APPOINTMENT HIGHLIGHT */
+.mgr-next-card {
+  margin: 4px 16px 12px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+  border-radius: 18px;
+  padding: 18px 20px;
+  color: white;
+  box-shadow: 0 8px 24px rgba(26, 26, 46, 0.25);
+}
+
+.mgr-next-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.mgr-next-time {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  color: #ffcd3c;
+}
+
+.mgr-next-client {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.mgr-next-service {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+}
+
+/* SECTION HEADING */
+.mgr-section-head {
+  padding: 16px 16px 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* APPOINTMENT CARD */
+.mgr-appt-card {
+  margin: 6px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+}
+
+.mgr-appt-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.mgr-appt-time {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--primary);
+  min-width: 48px;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.mgr-appt-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mgr-appt-client {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mgr-appt-service {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.mgr-appt-barber {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+.mgr-appt-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.mgr-btn-done {
+  flex: 1;
+  background: rgba(60, 165, 92, 0.1);
+  color: var(--green);
+  border: 1.5px solid rgba(60, 165, 92, 0.3);
+  border-radius: 10px;
+  padding: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.mgr-btn-done:active {
+  background: rgba(60, 165, 92, 0.2);
+}
+
+.mgr-btn-cancel {
+  flex: 1;
+  background: rgba(229, 57, 53, 0.07);
+  color: var(--red);
+  border: 1.5px solid rgba(229, 57, 53, 0.2);
+  border-radius: 10px;
+  padding: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.mgr-btn-cancel:active {
+  background: rgba(229, 57, 53, 0.15);
+}
+
+/* FILTERS */
+.mgr-filters {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px 6px;
+}
+
+.mgr-date-input,
+.mgr-select {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.mgr-date-input:focus,
+.mgr-select:focus {
+  border-color: var(--primary);
+}
+
+.mgr-summary-line {
+  padding: 4px 16px 6px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* BAR CHART */
+.mgr-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 0 16px 20px;
+  height: 160px;
+}
+
+.mgr-chart-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+}
+
+.mgr-chart-bar-wrap {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.mgr-chart-bar {
+  width: 100%;
+  background: linear-gradient(180deg, #ff8a52, var(--primary));
+  border-radius: 5px 5px 0 0;
+  min-height: 4px;
+}
+
+.mgr-chart-bar.today {
+  background: linear-gradient(180deg, #ffcd3c, #f59e0b);
+}
+
+.mgr-chart-val {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  white-space: nowrap;
+  min-height: 12px;
+}
+
+.mgr-chart-lbl {
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* RANKING LIST */
+.mgr-rank-list {
+  padding: 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mgr-rank-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.mgr-rank-num {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--primary);
+  min-width: 28px;
+  text-align: center;
+}
+
+.mgr-rank-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mgr-rank-name {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.mgr-rank-bar-wrap {
+  background: var(--bg-soft);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mgr-rank-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #ff8a52);
+  border-radius: 3px;
+}
+
+.mgr-rank-count {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--muted);
+  min-width: 28px;
+  text-align: right;
+}
+
+/* BARBER PERFORMANCE */
+.mgr-barber-stats {
+  padding: 0 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mgr-barber-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.mgr-barber-emoji {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-soft), #a9e2df);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.mgr-barber-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mgr-barber-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.mgr-barber-details {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.mgr-barber-rev {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* MANAGER LINK (auth page) */
+.mgr-link {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px dashed var(--border);
+  transition: all 0.2s;
+}
+
+.mgr-link:active {
+  color: var(--primary);
+  border-color: var(--primary-soft);
+  background: #fff5ee;
+}
+
+/* EMPTY SMALL */
+.mgr-empty-small {
+  padding: 20px 16px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
