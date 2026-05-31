@@ -1,8 +1,8 @@
-const CACHE = 'bumba-v3';
+const CACHE = 'bumba-v4';
 const ASSETS = [
   './', './index.html', './manifest.json',
-  './css/base.css', './css/app.css',
-  './js/data.js', './js/app.js', './js/views.js', './js/booking.js',
+  './css/base.css', './css/app.css', './css/manager.css',
+  './js/data.js', './js/app.js', './js/views.js', './js/booking.js', './js/manager.js',
   './icons/icon.svg'
 ];
 
