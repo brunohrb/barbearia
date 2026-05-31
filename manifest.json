@@ -1,0 +1,20 @@
+{
+  "name": "Silveira's Club - #BUMBA",
+  "short_name": "Silveira's",
+  "description": "O clube do Bumba — agendamento online da Silveira's Club Barbearia",
+  "start_url": "/barbearia/",
+  "display": "standalone",
+  "background_color": "#ffb88c",
+  "theme_color": "#ff6b35",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "logobumba.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["lifestyle"],
+  "lang": "pt-BR"
+}
